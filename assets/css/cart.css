@@ -1,0 +1,36 @@
+/* Cart Notification */
+.cart-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    max-width: 350px;
+}
+
+.cart-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cart Page Styles */
+.cart-table th {
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cart-table td {
+    vertical-align: middle;
+}
+
+.quantity-input {
+    -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,167 @@
+[
+    {
+        "id": 1,
+        "name": "Classic Black Frames",
+        "category": "men",
+        "price": 149.99,
+        "oldPrice": 199.99,
+        "onSale": true,
+        "image": "assets/img/products/men-1.jpg",
+        "colors": ["Black", "Tortoise"],
+        "frameType": "Full Frame",
+        "material": "Acetate",
+        "rating": 4.5,
+        "reviews": [
+            {"id": 1, "name": "John D.", "rating": 5, "review": "Great fit and very comfortable!", "date": "2023-05-15"},
+            {"id": 2, "name": "Michael S.", "rating": 4, "review": "Good quality but a bit heavy", "date": "2023-04-22"}
+        ],
+        "stock": 15
+    },
+    {
+        "id": 2,
+        "name": "Modern Silver Metal",
+        "category": "men",
+        "price": 179.99,
+        "image": "assets/img/products/men-2.jpg",
+        "colors": ["Silver", "Gold"],
+        "frameType": "Half Frame",
+        "material": "Titanium",
+        "rating": 4.8,
+        "reviews": [
+            {"id": 3, "name": "Robert P.", "rating": 5, "review": "Lightweight and stylish", "date": "2023-06-10"}
+        ],
+        "stock": 8
+    },
+    {
+        "id": 3,
+        "name": "Cat-Eye Frames",
+        "category": "women",
+        "price": 169.99,
+        "image": "assets/img/products/women-1.jpg",
+        "colors": ["Tortoise", "Black", "Red"],
+        "frameType": "Full Frame",
+        "material": "Acetate",
+        "rating": 4.9,
+        "reviews": [
+            {"id": 4, "name": "Sarah M.", "rating": 5, "review": "Love these! Get compliments all the time", "date": "2023-05-28"}
+        ],
+        "stock": 12
+    },
+    {
+        "id": 4,
+        "name": "Classic Black Frames",
+        "category": "men",
+        "price": 149.99,
+        "oldPrice": 199.99,
+        "image": "assets/img/products/men-1.jpg",
+        "colors": ["Black", "Tortoise"],
+        "frameType": "Full Frame",
+        "material": "Acetate",
+        "rating": 4.5,
+        "reviews": 42,
+        "description": "Timeless black acetate frames with a classic rectangular shape. Lightweight and durable with spring hinges for comfort."
+    },
+    {
+        "id": 5,
+        "name": "Modern Silver Metal",
+        "category": "men",
+        "price": 179.99,
+        "image": "assets/img/products/men-2.jpg",
+        "colors": ["Silver", "Gold"],
+        "frameType": "Half Frame",
+        "material": "Titanium",
+        "rating": 4.8,
+        "reviews": 36,
+        "description": "Sleek titanium frames with a contemporary design. Hypoallergenic and corrosion-resistant with adjustable nose pads."
+    },
+    {
+        "id": 6,
+        "name": "Aviator Style",
+        "category": "men",
+        "price": 159.99,
+        "oldPrice": 189.99,
+        "image": "assets/img/products/men-3.jpg",
+        "colors": ["Gold", "Silver"],
+        "frameType": "Full Frame",
+        "material": "Metal",
+        "rating": 4.7,
+        "reviews": 28,
+        "description": "Classic aviator style frames with a modern twist. Lightweight metal construction with UV-protective lenses included."
+    },
+    {
+        "id": 7,
+        "name": "Cat-Eye Frames",
+        "category": "women",
+        "price": 169.99,
+        "image": "assets/img/products/women-1.jpg",
+        "colors": ["Tortoise", "Black", "Red"],
+        "frameType": "Full Frame",
+        "material": "Acetate",
+        "rating": 4.9,
+        "reviews": 57,
+        "description": "Fashionable cat-eye frames with a retro vibe. Available in multiple colors with spring hinges for all-day comfort."
+    },
+    {
+        "id": 8,
+        "name": "Round Gold Frames",
+        "category": "women",
+        "price": 199.99,
+        "image": "assets/img/products/women-2.jpg",
+        "colors": ["Gold", "Rose Gold"],
+        "frameType": "Full Frame",
+        "material": "Metal",
+        "rating": 4.6,
+        "reviews": 39,
+        "description": "Elegant round frames with a delicate gold finish. Lightweight with adjustable nose pads for perfect fit."
+    },
+    {
+        "id": 9,
+        "name": "Flexible Kids Frames",
+        "category": "kids",
+        "price": 99.99,
+        "image": "assets/img/products/kids-1.jpg",
+        "colors": ["Blue", "Pink", "Green"],
+        "frameType": "Full Frame",
+        "material": "Plastic",
+        "rating": 4.7,
+        "reviews": 24,
+        "description": "Durable, flexible frames designed for active kids. Unbreakable material with spring hinges and silicone nose pads."
+    },
+    {
+        "id": 10,
+        "name": "Round Tortoise Frames",
+        "category": "kids",
+        "price": 139.99,
+        "image": "assets/img/products/unisex-1.jpg",
+        "colors": ["Tortoise", "Black"],
+        "frameType": "Full Frame",
+        "material": "Acetate",
+        "rating": 4.5,
+        "reviews": 31,
+        "description": "Versatile round frames that suit any face shape. Lightweight acetate with a timeless tortoise shell pattern."
+    },
+    {
+        "id": 11,
+        "name": "Daily Disposable Lenses",
+        "category": "contacts",
+        "price": 29.99,
+        "image": "assets/img/products/contact-1.jpg",
+        "colors": ["Clear"],
+        "type": "Daily",
+        "rating": 4.8,
+        "reviews": 68,
+        "description": "Comfortable daily disposable contact lenses with UV protection. Pack of 30 lenses (15 pairs)."
+    },
+    {
+        "id": 12,
+        "name": "Leather Glasses Holder",
+        "category": "holders",
+        "price": 24.99,
+        "image": "assets/img/products/holder-1.jpg",
+        "colors": ["Black", "Brown"],
+        "material": "Genuine Leather",
+        "rating": 4.6,
+        "reviews": 19,
+        "description": "Premium leather glasses holder with microfiber lining. Protects your glasses while not in use."
+    }
+]

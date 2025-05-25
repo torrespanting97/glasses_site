@@ -1,0 +1,91 @@
+/* Product Cards */
+.product-card {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-actions {
+    position: absolute;
+    top: 10px;
+    right: -40px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-card:hover .product-actions {
+    right: 10px;
+}
+
+/* Comparison Table */
+.comparison-table th {
+    white-space: nowrap;
+    width: 20%;
+}
+
+.comparison-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Review Stars */
+.rating-stars {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    color: #ddd;
+    font-size: 24px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: #ffc107;
+}
+
+/* Active Filters */
+.filter-badge {
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.filter-badge .btn-close {
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .product-actions {
+        right: 10px;
+        flex-direction: row;
+    }
+    
+    .product-card .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}

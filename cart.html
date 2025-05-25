@@ -1,0 +1,162 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - VisionPlus</title>
+    <!-- Same assets as index.html -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/cart.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Navigation Placeholder -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Cart Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0">Your Shopping Cart</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 10%"></th>
+                                            <th scope="col" style="width: 40%">Product</th>
+                                            <th scope="col" style="width: 20%">Price</th>
+                                            <th scope="col" style="width: 20%">Quantity</th>
+                                            <th scope="col" style="width: 10%">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cart-items">
+                                        <!-- Cart items will be dynamically inserted here -->
+                                        <tr class="cart-empty-row">
+                                            <td colspan="5" class="text-center py-5">
+                                                <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                                                <h4>Your cart is empty</h4>
+                                                <p class="text-muted">Browse our collections to find your perfect pair</p>
+                                                <a href="shop.html" class="btn btn-primary mt-3">Continue Shopping</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-4">
+                        <a href="shop.html" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                        </a>
+                        <button class="btn btn-outline-secondary" id="update-cart">
+                            <i class="fas fa-sync-alt me-2"></i>Update Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0">Order Summary</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="cart-subtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span id="cart-shipping">Free</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Tax:</span>
+                                <span id="cart-tax">$0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold fs-5">
+                                <span>Total:</span>
+                                <span id="cart-total">$0.00</span>
+                            </div>
+                            <a href="checkout.html" class="btn btn-primary w-100 mt-3" id="checkout-btn" disabled>
+                                Proceed to Checkout
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow-sm mt-4">
+                        <div class="card-body">
+                            <h5 class="mb-3">Have a Promo Code?</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter code">
+                                <button class="btn btn-primary" type="button">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Same scripts as index.html -->
+    <script>
+        // Include loader (same as index.html)
+        async function loadInclude(placeholderId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) throw new Error(`${filePath} not found`);
+                const html = await response.text();
+                const placeholder = document.getElementById(placeholderId);
+                if (placeholder) {
+                    placeholder.outerHTML = html;
+                    return true;
+                }
+            } catch (error) {
+                console.error(`Failed to load ${filePath}:`, error);
+            }
+            return false;
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const includesToLoad = [
+                { id: 'header-placeholder', path: '/includes/header.html' },
+                { id: 'navigation-placeholder', path: '/includes/navigation.html' },
+                { id: 'footer-placeholder', path: '/includes/footer.html' }
+            ];
+    
+            includesToLoad.forEach(async ({id, path}) => {
+                if (document.getElementById(id)) {
+                    await loadInclude(id, path);
+                }
+            });
+            
+            // Load cart items from localStorage
+            loadCart();
+        });
+    </script>
+
+    <!-- Cart JavaScript -->
+    <script src="assets/js/cart.js"></script>
+    
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Then Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Your custom scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

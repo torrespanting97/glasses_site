@@ -1,0 +1,43 @@
+/* Checkout Form Styles */
+#checkout-form .form-label {
+    font-weight: 500;
+}
+
+#checkout-form h5 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1.5rem;
+}
+
+/* Payment Method Styles */
+#creditCardFields {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+/* Order Summary Styles */
+#checkout-items {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .sticky-top {
+        position: static !important;
+    }
+}
+
+/* Form validation */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}

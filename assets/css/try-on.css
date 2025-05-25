@@ -1,0 +1,91 @@
+/* Virtual Try-On Styles */
+#camera-container, #photo-container {
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+#video, #uploaded-photo {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+#canvas, #photo-canvas {
+    pointer-events: none;
+    z-index: 10;
+}
+
+#upload-placeholder {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#upload-placeholder:hover {
+    background-color: #e9ecef;
+}
+
+.eyewear-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.eyewear-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.eyewear-item.active {
+    border-color: var(--primary);
+}
+
+.eyewear-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.eyewear-item .eyewear-name {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.result-image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.result-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+    .eyewear-item {
+        width: calc(50% - 0.5rem);
+    }
+}

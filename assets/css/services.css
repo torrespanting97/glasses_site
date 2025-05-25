@@ -1,0 +1,27 @@
+/* Smooth scrolling highlight styles */
+.active-service {
+    animation: highlight 1.5s ease;
+    position: relative;
+}
+
+.active-service::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--bs-primary);
+}
+
+@keyframes highlight {
+    0% { background-color: rgba(13, 110, 253, 0.1); }
+    100% { background-color: transparent; }
+}
+
+/* Active nav link style */
+.service-nav-link.active {
+    background-color: var(--bs-primary) !important;
+    color: white !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}

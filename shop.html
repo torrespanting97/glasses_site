@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Eyewear | VisionPlus</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/shop.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder (SSI will replace this if working) -->
+    <!--#include virtual="/includes/header.html" -->
+    <div id="header-placeholder"></div>
+
+    <!-- Navigation Placeholder -->
+    <!--#include virtual="/includes/navigation.html" -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Shop Hero Section -->
+    <section class="hero-section bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                        </ol>
+                    </nav>
+                    <h1 class="fw-bold mb-3">Our Eyewear Collection</h1>
+                    <p class="lead">Find your perfect pair from our premium selection</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <img src="assets/img/shop-hero.jpg" alt="Eyewear Collection" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Active Filters -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap align-items-center" id="activeFilters">
+                        <span class="me-2">Filters:</span>
+                        <!-- Active filters will appear here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="card-title mb-0">Filter By</h5>
+                                <button class="btn btn-sm btn-link text-decoration-none" onclick="resetFilters()">Reset All</button>
+                            </div>
+                            
+                            <!-- Search Filter -->
+                            <div class="mb-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search products..." id="searchFilter">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="applyFilters()">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Category Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Categories</h6>
+                                <div class="list-group list-group-flush">
+                                    <a href="shop.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="all">
+                                        All Eyewear
+                                        <span class="badge bg-primary rounded-pill" id="count-all">120</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="men">
+                                        Men's Glasses
+                                        <span class="badge bg-primary rounded-pill" id="count-men">45</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="women">
+                                        Women's Glasses
+                                        <span class="badge bg-primary rounded-pill" id="count-women">52</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="kids">
+                                        Kids' Glasses
+                                        <span class="badge bg-primary rounded-pill" id="count-kids">18</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="unisex">
+                                        Unisex
+                                        <span class="badge bg-primary rounded-pill" id="count-unisex">25</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="contact">
+                                        Contact Lenses
+                                        <span class="badge bg-primary rounded-pill" id="count-contact">30</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-filter="category" data-value="holders">
+                                        Glasses Holders
+                                        <span class="badge bg-primary rounded-pill" id="count-holders">15</span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Price Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Price Range</h6>
+                                <div id="priceRangeSlider" class="mb-3"></div>
+                                <div class="d-flex justify-content-between">
+                                    <span id="priceMinDisplay">$50</span>
+                                    <span id="priceMaxDisplay">$300</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Frame Type Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Frame Type</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="frameFull" data-filter="frameType" value="Full Frame" checked>
+                                    <label class="form-check-label" for="frameFull">Full Frame</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="frameHalf" data-filter="frameType" value="Half Frame" checked>
+                                    <label class="form-check-label" for="frameHalf">Half Frame</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="frameRimless" data-filter="frameType" value="Rimless" checked>
+                                    <label class="form-check-label" for="frameRimless">Rimless</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input filter-option" type="checkbox" id="frameSports" data-filter="frameType" value="Sports" checked>
+                                    <label class="form-check-label" for="frameSports">Sports</label>
+                                </div>
+                            </div>
+                            
+                            <!-- Color Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Frame Color</h6>
+                                <div class="color-options d-flex flex-wrap gap-2">
+                                    <button class="btn btn-sm btn-outline-secondary color-filter active" data-filter="color" data-value="all">All</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Black">Black</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Brown">Brown</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Silver">Silver</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Gold">Gold</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Blue">Blue</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Red">Red</button>
+                                    <button class="btn btn-sm btn-outline-secondary color-filter" data-filter="color" data-value="Tortoise">Tortoise</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Material Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Material</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="materialAcetate" data-filter="material" value="Acetate" checked>
+                                    <label class="form-check-label" for="materialAcetate">Acetate</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="materialMetal" data-filter="material" value="Metal" checked>
+                                    <label class="form-check-label" for="materialMetal">Metal</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="materialTitanium" data-filter="material" value="Titanium" checked>
+                                    <label class="form-check-label" for="materialTitanium">Titanium</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input filter-option" type="checkbox" id="materialPlastic" data-filter="material" value="Plastic" checked>
+                                    <label class="form-check-label" for="materialPlastic">Plastic</label>
+                                </div>
+                            </div>
+                            
+                            <!-- Rating Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Rating</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="rating5" data-filter="rating" value="4">
+                                    <label class="form-check-label" for="rating5">
+                                        <span class="text-warning">★★★★★</span> & Up
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="rating4" data-filter="rating" value="3">
+                                    <label class="form-check-label" for="rating4">
+                                        <span class="text-warning">★★★★☆</span> & Up
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input filter-option" type="checkbox" id="rating3" data-filter="rating" value="2">
+                                    <label class="form-check-label" for="rating3">
+                                        <span class="text-warning">★★★☆☆</span> & Up
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input filter-option" type="checkbox" id="rating2" data-filter="rating" value="1">
+                                    <label class="form-check-label" for="rating2">
+                                        <span class="text-warning">★★☆☆☆</span> & Up
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Availability Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Availability</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input filter-option" type="checkbox" id="inStock" data-filter="inStock" value="true">
+                                    <label class="form-check-label" for="inStock">In Stock Only</label>
+                                </div>
+                            </div>
+                            
+                            <!-- Special Offers Filter -->
+                            <div class="mb-4">
+                                <h6 class="mb-3">Special Offers</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input filter-option" type="checkbox" id="onSale" data-filter="onSale" value="true">
+                                    <label class="form-check-label" for="onSale">On Sale</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="col-lg-9">
+                    <!-- Category Header -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h2 id="categoryTitle" class="mb-0">All Eyewear</h2>
+                            <small class="text-muted" id="productCount">Showing 120 products</small>
+                        </div>
+                        <div class="d-flex">
+                            <div class="dropdown me-2">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                                    Sort by: Featured
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" data-sort="featured">Featured</a></li>
+                                    <li><a class="dropdown-item" href="#" data-sort="price-asc">Price: Low to High</a></li>
+                                    <li><a class="dropdown-item" href="#" data-sort="price-desc">Price: High to Low</a></li>
+                                    <li><a class="dropdown-item" href="#" data-sort="newest">Newest Arrivals</a></li>
+                                    <li><a class="dropdown-item" href="#" data-sort="rating">Best Rated</a></li>
+                                    <li><a class="dropdown-item" href="#" data-sort="popular">Best Sellers</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary active" data-view="grid"><i class="fas fa-th"></i></button>
+                                <button type="button" class="btn btn-outline-secondary" data-view="list"><i class="fas fa-list"></i></button>
+                            </div>
+                            <button id="compare-button" class="btn btn-outline-primary ms-2 d-none">
+                                <i class="fas fa-balance-scale"></i>
+                                <span class="badge bg-primary rounded-pill ms-1" id="compare-badge">0</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Grid -->
+                    <div class="row g-4" id="productGrid">
+                        <!-- Product items will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Recently Viewed -->
+                    <div class="mt-5" id="recently-viewed"></div>
+                    
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try-On Banner -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">Not Sure Which Frames Suit You?</h2>
+                    <p class="lead mb-4">Try our virtual try-on technology to see how different frames look on your face before you buy.</p>
+                    <button class="btn btn-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#tryOnModal">Start Virtual Try-On</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <!--#include virtual="/includes/footer.html" -->
+    <div id="footer-placeholder"></div>
+
+        <!-- JavaScript Include Fallback -->
+        <script>
+            // Function to load includes via JavaScript
+            async function loadInclude(placeholderId, filePath) {
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) throw new Error(`${filePath} not found`);
+                    const html = await response.text();
+                    const placeholder = document.getElementById(placeholderId);
+                    if (placeholder) {
+                        placeholder.outerHTML = html;
+                        return true;
+                    }
+                } catch (error) {
+                    console.error(`Failed to load ${filePath}:`, error);
+                }
+                return false;
+            }
+        
+            // Check if includes are empty (SSI didn't work)
+            document.addEventListener('DOMContentLoaded', function() {
+                // Load each include if its placeholder still exists
+                const includesToLoad = [
+                    { id: 'header-placeholder', path: '/includes/header.html' },
+                    { id: 'navigation-placeholder', path: '/includes/navigation.html' },
+                    { id: 'footer-placeholder', path: '/includes/footer.html' }
+                ];
+        
+                includesToLoad.forEach(async ({id, path}) => {
+                    if (document.getElementById(id)) {
+                        await loadInclude(id, path);
+                    }
+                });
+            });
+        </script>
+    
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="productModalBody">
+                    <!-- Product details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comparison Modal -->
+    <div class="modal fade" id="comparisonModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Comparison</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered comparison-table">
+                            <thead>
+                                <tr>
+                                    <th width="20%">Features</th>
+                                    <!-- Product columns will be added here -->
+                                </tr>
+                            </thead>
+                            <tbody id="comparison-body">
+                                <!-- Comparison rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add Selected to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Review Modal -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Write a Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="review-form">
+                        <input type="hidden" name="productId" id="review-product-id">
+                        <div class="mb-3">
+                            <label class="form-label">Your Rating</label>
+                            <div class="rating-stars">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="review-name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="review-name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="review-text" class="form-label">Your Review</label>
+                            <textarea class="form-control" id="review-text" name="review" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROPER SCRIPT LOADING ORDER -->
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Then Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Your custom scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/services.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <script src="assets/js/comparison.js"></script>
+    <script src="assets/js/reviews.js"></script>
+    <script src="assets/js/recently-viewed.js"></script>
+    <script src="assets/js/shop.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.5.1/dist/nouislider.min.js"></script>
+
+    <script src="assets/js/cart.js"></script>
+
+    
+    <script>
+        // Initialize all components when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all systems
+            initFilters();
+            initComparison();
+            initReviews();
+            initRecentlyViewed();
+            
+            // Load initial products
+            loadInitialProducts();
+        });
+        
+        // Load initial products based on URL parameters
+        function loadInitialProducts() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category') || 'all';
+            const searchQuery = urlParams.get('q') || '';
+            
+            // Update active category in filters
+            if (category !== 'all') {
+                document.querySelector(`[data-filter="category"][data-value="${category}"]`).classList.add('active');
+            }
+            
+            // Load and display products
+            loadProducts(category, searchQuery).then(products => {
+                displayProducts(products);
+                updateFilterCounts(products);
+            });
+        }
+    </script>
+</body>
+</html>

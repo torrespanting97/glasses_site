@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Negocio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder (SSI will replace this if working) -->
+    <!--#include virtual="/includes/header.html" -->
+    <div id="header-placeholder"></div>
+
+    <!-- Navigation Placeholder -->
+    <!--#include virtual="/includes/navigation.html" -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Contáctanos</h1>
+            <p class="lead">Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="text-center mb-4">Envíanos un mensaje</h2>
+                            <form id="contactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Nombre completo</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa tu nombre.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa un correo válido.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Asunto</label>
+                                        <input type="text" class="form-control" id="subject" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa un asunto.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Mensaje</label>
+                                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa tu mensaje.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="agree" required>
+                                            <label class="form-check-label" for="agree">
+                                                Acepto los <a href="#" class="text-decoration-none">términos y condiciones</a>
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                Debes aceptar los términos para continuar.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary px-4 py-2">Enviar mensaje</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-light-primary text-primary mb-3">
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                            </div>
+                            <h4>Ubicación</h4>
+                            <p class="mb-0">Calle Principal #123<br>Ciudad, País</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-light-success text-success mb-3">
+                                <i class="fas fa-phone fa-2x"></i>
+                            </div>
+                            <h4>Teléfono</h4>
+                            <p class="mb-0">+1 234 567 890<br>+1 987 654 321</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-light-info text-info mb-3">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <h4>Correo</h4>
+                            <p class="mb-0">info@minegocio.com<br>ventas@minegocio.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="py-0">
+        <div class="container-fluid px-0">
+            <div class="ratio ratio-21x9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215373510324!2d-73.9878449241646!3d40.74844047138911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1681234567890!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <!--#include virtual="/includes/footer.html" -->
+    <div id="footer-placeholder"></div>
+
+        <!-- JavaScript Include Fallback -->
+        <script>
+            // Function to load includes via JavaScript
+            async function loadInclude(placeholderId, filePath) {
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) throw new Error(`${filePath} not found`);
+                    const html = await response.text();
+                    const placeholder = document.getElementById(placeholderId);
+                    if (placeholder) {
+                        placeholder.outerHTML = html;
+                        return true;
+                    }
+                } catch (error) {
+                    console.error(`Failed to load ${filePath}:`, error);
+                }
+                return false;
+            }
+        
+            // Check if includes are empty (SSI didn't work)
+            document.addEventListener('DOMContentLoaded', function() {
+                // Load each include if its placeholder still exists
+                const includesToLoad = [
+                    { id: 'header-placeholder', path: '/includes/header.html' },
+                    { id: 'navigation-placeholder', path: '/includes/navigation.html' },
+                    { id: 'footer-placeholder', path: '/includes/footer.html' }
+                ];
+        
+                includesToLoad.forEach(async ({id, path}) => {
+                    if (document.getElementById(id)) {
+                        await loadInclude(id, path);
+                    }
+                });
+            });
+        </script>
+
+    <!-- PROPER SCRIPT LOADING ORDER -->
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Then Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Your custom scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+    
+    <script src="assets/js/chatbot.js"></script>
+
+</body>
+</html>
