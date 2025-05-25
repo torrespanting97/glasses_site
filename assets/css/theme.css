@@ -14,6 +14,26 @@
     --info-light: #cff4fc;
     --warning-light: #fff3cd;
     --danger-light: #f8d7da;
+    --text-color: #212529; /* Default text color for light mode */
+}
+
+[data-theme="dark"] {
+    --primary: #3b82f6; /* A slightly lighter blue for dark mode */
+    --secondary: #8c959d; /* A slightly lighter grey for dark mode */
+    --success: #28a745; /* Green for dark mode */
+    --info: #17a2b8; /* Cyan for dark mode */
+    --warning: #ffc107; /* Yellow for dark mode */
+    --danger: #dc3545; /* Red for dark mode */
+    --light: #343a40; /* Darker background for light elements */
+    --dark: #f8f9fa; /* Lighter text/elements for dark backgrounds */
+    
+    /* Dark mode equivalents for additional colors */
+    --primary-light: #2c3e50; /* Darker shade for primary-light */
+    --success-light: #1f4c30; /* Darker shade for success-light */
+    --info-light: #2c5760; /* Darker shade for info-light */
+    --warning-light: #66512c; /* Darker shade for warning-light */
+    --danger-light: #582c33; /* Darker shade for danger-light */
+    --text-color: #f8f9fa; /* Light text for dark mode */
 }
 
 /* Estilos para icon boxes */
