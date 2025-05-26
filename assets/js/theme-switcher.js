@@ -36,12 +36,26 @@ try {
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleButton = document.getElementById('theme-toggle-button'); // Assuming a button with this ID
   if (themeToggleButton) {
-    themeToggleButton.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (currentTheme === 'dark') {
-        setTheme('light');
-      } else {
-        setTheme('dark');
+    console.log('Theme toggle button found and listener being attached.'); // New log
+    themeToggleButton.addEventListener('click', () => { // Corrected arrow function syntax
+      console.log('Theme toggle button clicked.'); // New log
+      try {
+        let currentTheme = document.documentElement.getAttribute('data-theme');
+        console.log('Current data-theme attribute is:', currentTheme); // New log
+
+        if (currentTheme === 'dark') {
+          console.log('Changing theme to light.'); // New log
+          setTheme('light');
+        } else {
+          console.log('Changing theme to dark.'); // New log
+          setTheme('dark');
+        }
+        
+        // Verify after setting
+        // const newTheme = document.documentElement.getAttribute('data-theme');
+        // console.log('Theme changed. New data-theme attribute is:', newTheme); // New log
+      } catch (e) {
+        console.error('Error during theme toggle:', e); // New log for errors within the click handler
       }
     });
   } else {
