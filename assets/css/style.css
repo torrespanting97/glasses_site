@@ -135,21 +135,153 @@ section {
 }
 
 /* Responsive adjustments */
-@media (max-width: 767.98px) {
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query needed as it's mobile-first */
+
+/* Base typography for xs screens */
+h1, .h1 { font-size: 2rem; }
+h2, .h2 { font-size: 1.75rem; }
+h3, .h3 { font-size: 1.5rem; }
+h4, .h4 { font-size: 1.25rem; }
+h5, .h5 { font-size: 1.1rem; }
+h6, .h6 { font-size: 1rem; }
+p, li { font-size: 0.95rem; }
+.display-4 { font-size: 2.5rem; }
+
+/* Base section padding for xs screens */
+section {
+    padding: 2.5rem 0;
+}
+.hero-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+.hero-section img {
+    margin-top: 1.5rem;
+    max-width: 80%; /* Ensure image scales down */
+    height: auto;
+}
+.hero-section .display-4 {
+    font-size: 2.25rem; /* More specific for hero title on xs */
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    h1, .h1 { font-size: 2.25rem; }
+    h2, .h2 { font-size: 2rem; }
+    h3, .h3 { font-size: 1.75rem; }
+    p, li { font-size: 1rem; }
+    .display-4 { font-size: 3rem; }
     section {
         padding: 3rem 0;
     }
-    
+    .hero-section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .hero-section .display-4 {
+        font-size: 2.75rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Existing max-width: 767.98px rule will be overridden or complemented by min-width rules */
+    h1, .h1 { font-size: 2.5rem; } /* Default Bootstrap h1 */
+    h2, .h2 { font-size: 2rem; }    /* Default Bootstrap h2 */
+    h3, .h3 { font-size: 1.75rem; } /* Default Bootstrap h3 */
+    .display-4 { font-size: 3.5rem; } /* Default Bootstrap display-4 */
+    section {
+        padding: 4rem 0; /* Slightly less than original 5rem for md */
+    }
     .hero-section {
         padding-top: 80px;
         padding-bottom: 80px;
-        text-align: center;
+        text-align: left; /* Revert text-align for larger screens */
     }
-    
     .hero-section img {
-        margin-top: 2rem;
+        margin-top: 0; /* Revert margin for larger screens */
+        max-width: 100%;
+    }
+     .hero-section .display-4 {
+        font-size: 3.25rem;
     }
 }
+
+/* Keep the existing max-width rule for specific overrides if needed, but prefer min-width for scaling up */
+@media (max-width: 767.98px) {
+    section {
+        /* This padding is effectively for sm and below if not overridden by min-width: 576px */
+        /* Let's ensure min-width rules take precedence or adjust this */
+        padding: 3rem 0; /* This will apply to screens < 768px unless a min-width rule for 576px+ specifies otherwise */
+    }
+
+    .hero-section {
+        /* Styles here apply to screens < 768px */
+        text-align: center; /* Ensures hero text is centered on smaller than md */
+    }
+
+    .hero-section img {
+        /* Styles here apply to screens < 768px */
+        /* Specifically, this provides a different margin for 'sm' (576px to 767.98px) vs 'xs' (<576px) */
+        margin-top: 2rem; /* 'xs' has 1.5rem, 'sm' gets 2rem, 'md' gets 0 */
+    }
+    /* Typography rules for h1 and .display-4 were removed from here to allow 
+       min-width queries (e.g., for sm breakpoint) to take precedence correctly.
+       Base xs styles and specific min-width styles will now apply without being overridden
+       by this max-width rule for sm screens. */
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    h1, .h1 { font-size: 2.75rem; }
+    h2, .h2 { font-size: 2.25rem; }
+    .display-4 { font-size: 4rem; }
+    section {
+        padding: 5rem 0; /* Original padding for lg and xl */
+    }
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .hero-section .display-4 {
+        font-size: 3.75rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    h1, .h1 { font-size: 3rem; }
+    h2, .h2 { font-size: 2.5rem; }
+    .display-4 { font-size: 4.5rem; } /* Default Bootstrap display-4 on xl */
+    .hero-section .display-4 {
+        font-size: 4rem;
+    }
+}
+
+/* Header Top Bar specific styles */
+/* Assuming .top-bar is a class on the parent of the .container mentioned in header.html */
+/* and that .container has d-flex justify-content-between align-items-center */
+@media (max-width: 480px) {
+    .top-bar .container { /* This should be the direct child of .top-bar and the flex container */
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center text content within stacked items */
+    }
+
+    .top-bar .container > div:first-child { /* Targets the div with phone/email */
+        margin-bottom: 0.5rem; /* Space between the two stacked groups */
+    }
+    
+    .top-bar .social-icons a {
+        margin: 0 0.3rem; /* Adjust spacing for social icons if needed */
+    }
+}
+
 
 /* Chatbot Styles */
 .chatbot-widget {
@@ -160,7 +292,7 @@ section {
 }
 
 .chatbot-toggler {
-    padding: 12px 20px;
+    padding: 12px 20px; /* Good tap target size */
     display: flex;
     align-items: center;
 }
@@ -168,7 +300,7 @@ section {
 .chatbot-container {
     position: absolute;
     right: 0;
-    bottom: calc(100% + 20px);
+    bottom: calc(100% + 20px); /* Distance from toggler */
     width: 350px;
     background: white;
     border-radius: 15px;
@@ -179,6 +311,24 @@ section {
     transition: all 0.3s ease;
     transform-origin: bottom right;
 }
+
+@media (max-width: 400px) {
+    .chatbot-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+    .chatbot-container {
+        width: 90vw; /* Responsive width */
+        max-width: 320px; /* Max width to prevent it from being too wide on slightly larger small screens */
+        bottom: calc(100% + 10px); /* Closer to the toggler */
+        /* right will be 0 relative to chatbot-widget */
+    }
+    .chatbot-toggler {
+        padding: 10px 15px; /* Slightly smaller padding */
+        font-size: 0.9rem; /* Adjust icon/text size if needed */
+    }
+}
+
 
 .chatbot-container.show {
     transform: scale(1);
@@ -262,23 +412,45 @@ section {
 }
 
 .collection-card .card-img-top {
-    height: 300px; /* Fixed height for consistency */
+    height: 300px; /* Default height for md screens and up */
     object-fit: cover; /* Maintain aspect ratio */
     width: 100%;
 }
+
+/* Adjustments for sm screens */
+@media (max-width: 767.98px) { /* Targets sm and xs */
+    .collection-card .card-img-top {
+        height: 220px; 
+    }
+    .collection-card h3 {
+        font-size: 1.35rem; /* Slightly smaller heading for sm */
+    }
+}
+
+/* Adjustments for xs screens */
+@media (max-width: 575.98px) { /* Targets only xs */
+    .collection-card .card-img-top {
+        height: 180px; /* Further reduce height for extra small screens */
+    }
+    .collection-card h3 {
+        font-size: 1.2rem; /* Smaller heading for xs */
+    }
+}
+
 
 .collection-card .card-img-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0;
+    padding: 0; /* Padding is often better on child elements if needed */
 }
 
 .collection-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Default font size for md and up */
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Better text visibility */
     margin-bottom: 0.5rem;
+    padding: 0 0.75rem; /* Add some horizontal padding to the text itself */
 }
 
 /* Optional: Add padding to the container if cards are too close */
@@ -339,4 +511,348 @@ section {
 
 .mt-auto {
     margin-top: auto !important;
+}
+
+/* Collapsed Navbar Action Buttons Styling */
+@media (max-width: 991.98px) {
+    #navbarNav .ms-lg-3.d-flex { /* Targets the specific d-flex container for action buttons */
+        flex-direction: column;
+        align-items: stretch; /* Makes child buttons take full width */
+        margin-top: 1rem; /* Space above the button group */
+        width: 100%; /* Ensure the container itself takes full available width if needed */
+    }
+
+    #navbarNav .ms-lg-3.d-flex .btn {
+        width: 100%; /* Make buttons take full width of their container */
+        margin-bottom: 0.75rem; /* Space between stacked buttons */
+        /* Default Bootstrap button padding and font-size are generally good for tapping. */
+    }
+
+    #navbarNav .ms-lg-3.d-flex .btn:last-child {
+        margin-bottom: 0; /* Remove margin from the last button */
+    }
+
+    /* Optional: If nav items above these buttons are also full width, 
+       ensure these buttons align text to center or start as desired.
+       Bootstrap .btn default is text-center. If you need to override: */
+    /*
+    #navbarNav .ms-lg-3.d-flex .btn {
+        text-align: center; // or text-align: start;
+    }
+    */
+}
+
+/* =============================================== */
+/* ===== Mobile Responsiveness Enhancements ====== */
+/* =============================================== */
+
+/* General adjustments for smaller screens (tablets and below) */
+@media (max-width: 991.98px) {
+    /* Checkout Page: Order Summary sticky card adjustment */
+    .checkout-order-summary.sticky-top { /* Assuming this class for specificity */
+        position: static !important; /* Remove stickiness */
+        width: auto !important;
+        margin-top: 2rem; /* Add space when it becomes static */
+    }
+
+    /* Shop Page: Filters Sidebar adjustments when stacked */
+    #filtersSidebar {
+        padding: 1rem;
+        border: 1px solid #eee;
+        border-radius: 0.375rem;
+        margin-bottom: 2rem;
+    }
+    #filtersSidebar .filter-section {
+        margin-bottom: 1.5rem;
+    }
+    #filtersSidebar .filter-section:last-child {
+        margin-bottom: 0;
+    }
+    #filtersSidebar .filter-section h5 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    #filtersSidebar .list-group-item {
+        padding: 0.6rem 0.8rem; /* Adjusted padding */
+        font-size: 0.9rem;
+        border-color: #f0f0f0; /* Lighter border for list items */
+    }
+    #filtersSidebar .form-check-label,
+    #filtersSidebar .form-label { /* For price range labels etc. */
+        font-size: 0.9rem;
+    }
+    #filtersSidebar .color-filter .btn {
+        width: 32px; /* Slightly larger for tap */
+        height: 32px;
+        margin: 3px;
+        border-radius: 50%; /* Make them circular */
+    }
+    #filtersSidebar .form-range {
+        /* Styling for form-range thumbs is complex and often browser-specific */
+        /* Basic width adjustment */
+        width: 100%;
+    }
+}
+
+
+/* General adjustments for mobile phones (landscape and portrait) */
+@media (max-width: 767.98px) {
+    /* Cart Page: Cart Table */
+    .cart-table th,
+    .cart-table td {
+        padding: 0.5rem 0.3rem; /* Reduced padding */
+        font-size: 0.9rem;
+        vertical-align: middle; /* Align content nicely */
+    }
+    .cart-table .product-name {
+        word-break: break-word;
+        min-width: 120px; /* Allow a bit more space for product names */
+        font-weight: 500;
+    }
+    .cart-table .product-thumbnail img { /* Assuming a class for thumbnail column */
+        max-width: 60px;
+        height: auto;
+    }
+    .cart-table .form-control.quantity-input { /* Assuming a class for quantity */
+        padding: 0.3rem 0.5rem;
+        font-size: 0.9rem;
+        width: 65px; /* Slightly wider for easier interaction */
+        text-align: center;
+    }
+    .cart-table .btn-remove-item { /* Assuming a class for remove button */
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    /* Cart Page: Cart Actions Buttons */
+    .cart-actions .btn { /* Container for "Update Cart", "Continue Shopping" */
+        width: 100%;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+    }
+    .cart-actions .btn:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Cart Page & Checkout Page: Order Summary Card */
+    .order-summary-card .card-title { /* Assuming class for card */
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    .order-summary-card .list-group-item {
+        font-size: 0.95rem;
+        padding: 0.6rem 0; /* Simpler padding, relying on flex for space-between */
+    }
+    .order-summary-card .btn-primary { /* "Proceed to Checkout" or "Place Order" */
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    /* Cart Page: Promo Code Section */
+    .promo-code-section .form-control,
+    .promo-code-section .btn {
+        font-size: 0.9rem;
+    }
+    .promo-code-section .input-group { /* If it's an input group */
+        display: flex;
+        flex-direction: column;
+    }
+    .promo-code-section .input-group .form-control {
+        border-radius: 0.375rem !important; /* Reset Bootstrap's connected input styling */
+        margin-bottom: 0.5rem;
+    }
+     .promo-code-section .input-group .btn {
+        border-radius: 0.375rem !important;
+        width: 100%;
+     }
+
+    /* Checkout Page: Forms */
+    .checkout-form .form-label {
+        font-size: 0.9rem; /* Slightly smaller labels */
+        margin-bottom: 0.25rem;
+    }
+    .checkout-form .form-control,
+    .checkout-form .form-select {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+    }
+    .checkout-form .row > [class*="col-"] { /* Stacked columns */
+        margin-bottom: 1rem; /* Increased space for stacked fields */
+    }
+     .checkout-form .form-check-label {
+        font-size: 0.9rem;
+    }
+
+    /* Shop Page: Product Cards */
+    .product-card .card-img-top { /* Assuming a general .product-card class */
+        /* Height is usually controlled by aspect ratio or specific component CSS */
+        /* This is just an example if images are too large */
+    }
+    .product-card .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    .product-card .card-text.price {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    .product-card .btn { /* Add to cart button */
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        width: 100%; /* Make button full width for easier tapping */
+    }
+
+    /* Shop Page: Pagination */
+    .pagination .page-link {
+        padding: 0.4rem 0.65rem; /* Adjusted padding for tapability */
+        font-size: 0.9rem;
+    }
+    .pagination .page-item {
+        margin: 0 2px;
+    }
+
+    /* Services Page: Accordion */
+    .accordion-button {
+        font-size: 1rem; /* Ensure good readability */
+        padding: 0.8rem 1rem;
+    }
+    .accordion-button::after { /* Smaller icon */
+        width: 1rem;
+        height: 1rem;
+        background-size: 1rem;
+    }
+    .accordion-body {
+        font-size: 0.9rem;
+    }
+    .accordion-body ul, .accordion-body ol {
+        padding-left: 1.2rem;
+    }
+    .accordion-body p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Services Page: Alternating Image/Text Sections */
+    .alternating-section .row > [class*="col-"] {
+        margin-bottom: 1.5rem;
+    }
+    .alternating-section .row > [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
+    .alternating-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.375rem; /* Consistent rounding */
+        /* margin-bottom is handled by parent col normally */
+    }
+
+    /* Try-On Page: Video/Photo Area & Controls */
+    #videoFeed, #photoCanvas, #uploadedImage, #tryOnResultImage {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd; /* Add a border for clarity */
+        border-radius: 0.375rem;
+    }
+    .try-on-controls .btn,
+    .eyewear-upload-controls .btn { /* Assuming controls have these classes */
+        width: 100%;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+    .try-on-controls .btn:last-child,
+    .eyewear-upload-controls .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Try-On Page: Eyewear Selection Panel */
+    #eyewear-filters .form-select { /* Filters within the panel */
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+    #eyewear-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Spacing between thumbnails */
+        justify-content: center; /* Center thumbnails if row not full */
+        margin-top: 1rem;
+    }
+    #eyewear-list .eyewear-thumbnail {
+        width: 70px; 
+        height: auto; /* Maintain aspect ratio, or set fixed if images are uniform */
+        min-height: 45px; /* Ensure a minimum tap height */
+        margin: 0; /* Gap handles spacing */
+        border: 2px solid transparent; /* For active state */
+        border-radius: 0.25rem;
+        cursor: pointer;
+        object-fit: contain; /* Ensure full image is visible */
+    }
+     #eyewear-list .eyewear-thumbnail.active { /* Example active state */
+        border-color: var(--primary);
+        box-shadow: 0 0 5px var(--primary-light);
+     }
+}
+
+
+/* Specific adjustments for extra-small screens */
+@media (max-width: 575.98px) {
+    /* Cart Page: Cart Table */
+    .cart-table th,
+    .cart-table td {
+        font-size: 0.8rem; /* Even smaller font for very small screens */
+        padding: 0.4rem 0.2rem;
+    }
+    .cart-table .product-name {
+        min-width: 80px; /* Adjust min-width */
+    }
+    .cart-table .product-thumbnail img {
+        max-width: 45px;
+    }
+    .cart-table .form-control.quantity-input {
+        width: 50px;
+        font-size: 0.8rem;
+    }
+    
+    /* Shop Page: Product Cards */
+    .product-card .card-title {
+        font-size: 0.9rem;
+    }
+    .product-card .card-text.price {
+        font-size: 0.85rem;
+    }
+    .product-card .btn {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    /* Shop Page: Sorting/View Buttons */
+    .shop-controls-bar { /* Assuming a container for sort/view */
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; /* Space between stacked elements */
+    }
+    .shop-controls-bar .form-select,
+    .shop-controls-bar .btn-group { /* Or individual buttons */
+        width: 100%; /* Make them full width */
+    }
+    .shop-controls-bar .form-select,
+    .shop-controls-bar .btn-group .btn {
+        font-size: 0.9rem; /* Ensure readable font size */
+        padding: 0.5rem 0.75rem; /* Comfortable padding */
+    }
+    
+    /* Pagination for very small screens */
+    .pagination .page-link {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .pagination .page-item.disabled .page-link { /* Ensure disabled looks right */
+        /* Styles if needed */
+    }
+    .pagination .page-item:first-child .page-link,
+    .pagination .page-item:last-child .page-link {
+        /* Optional: hide prev/next text and only show chevrons if too cramped */
+        /* This is more complex and might need HTML changes or more specific CSS */
+    }
 }
